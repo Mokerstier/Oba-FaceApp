@@ -4,8 +4,8 @@
   "description": "searching subjects based on age with face recognition",
   "main": "script.js",
   "scripts": {
-    "dev": "nodemon project-1-1920/server.js",
-    "start": "node project-1-1920/server.js",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
     "test": "test"
   },
   "repository": {
