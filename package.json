@@ -1,0 +1,37 @@
+{
+  "name": "facebook",
+  "version": "1.0.0",
+  "description": "searching subjects based on age with face recognition",
+  "main": "script.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamadAlGhorani/project-1-1920.git"
+  },
+  "keywords": [
+    "face",
+    "book",
+    "recognition",
+    "oba",
+    "lecture",
+    "paper",
+    "learn",
+    "read"
+  ],
+  "author": "Mohamad Al Ghorani & Wouter van der Heijde",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MohamadAlGhorani/project-1-1920/issues"
+  },
+  "homepage": "https://github.com/MohamadAlGhorani/project-1-1920#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "handlebars": "^4.7.3",
+    "nodemon": "^2.0.2"
+  }
+}
