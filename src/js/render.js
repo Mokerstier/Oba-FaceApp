@@ -1,9 +1,9 @@
-function renderData(data) {
-    const results = data.results;
-    console.log(results);
-    const main = document.querySelector('main');
+module.exports = function renderData(data) {
+    const results = data;
+    console.log(results)
+    
+    
+    // const main = document.querySelector('main');
 }
 
-export {
-    renderData
-}
+// exports.renderData = renderData()
