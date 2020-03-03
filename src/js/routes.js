@@ -12,14 +12,20 @@ const routes = {
   "home": function () {
     updateUI("home");
     runApi();
-
+    const genre = document.getElementById("genre");
     const personAge = document.getElementById('personAge');
-    console.log(personAge)
 
     personAge.addEventListener("click", () => {
       let value = personAge.value;
+      let genreValue = genre.value;
       console.log('im going to change');
-      checkAge(value)
+      checkAge(value, genreValue)
+    })
+    genre.addEventListener("click", () => {
+      let value = personAge.value;
+      let genreValue = genre.value;
+      console.log('im going to change');
+      checkAge(value, genreValue)
     })
     console.log("home");
   },

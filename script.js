@@ -1,5 +1,6 @@
 const video = document.getElementById('video')
 const personAge = document.getElementById('personAge')
+const genre = document.getElementById('genre')
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
@@ -65,13 +66,37 @@ video.addEventListener('play', () => {
         console.log("mag niet filmpjes bekijken onder 12");
         personAge.value = Math.floor(person.age)
         personAge.click()
-
+        genre.value = Object.entries(person.expressions)
+        .map(([key, value]) => {
+          return { key, value }
+        })
+        .reduce((acc, curr) => {
+          if (acc.value > curr.value) {
+            return acc
+          } else {
+            return curr
+          }
+        }).key
+        genre.click()
       } else {
         console.log("mag alles bekijken");
         personAge.value = Math.floor(person.age)
         personAge.click()
+        
+        genre.value = Object.entries(person.expressions)
+          .map(([key, value]) => {
+            return { key, value }
+          })
+          .reduce((acc, curr) => {
+            if (acc.value > curr.value) {
+              return acc
+            } else {
+              return curr
+            }
+          }).key
+          genre.click()
       }
     })
 
-  }, 100)
+  }, 500)
 })
