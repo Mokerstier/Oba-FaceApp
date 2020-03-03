@@ -1,4 +1,3 @@
-
 const video = document.getElementById('video')
 
 Promise.all([
@@ -33,7 +32,10 @@ var volwassen = document.querySelector(".volwassen");
 video.addEventListener('play', () => {
   const canvas = document.createElement("canvas");
   videoContainer.append(canvas)
-  const displaySize = { width: video.width, height: video.height }
+  const displaySize = {
+    width: video.width,
+    height: video.height
+  }
   faceapi.matchDimensions(canvas, displaySize)
   setInterval(async () => {
     const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions().withAgeAndGender()
@@ -41,22 +43,29 @@ video.addEventListener('play', () => {
     canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
     faceapi.draw.drawDetections(canvas, resizedDetections)
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
-    // faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+    faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
     resizedDetections.forEach(result => {
-      const { age, gender, genderProbability } = result
+      const {
+        age,
+        gender,
+        genderProbability
+      } = result
       new faceapi.draw.DrawTextField(
         [
           `${faceapi.round(age, 0)} years`,
           `${gender} (${faceapi.round(genderProbability)})`
         ],
-        result.detection.box.bottomLeft
+        result.detection.box.bottomRight
       ).draw(canvas)
     })
-    // console.log("info", detections[0]);
-    if (detections[0].age && detections[0].age < 16) {
-      console.log("mag niet filmpjes bekijken onder 16");
-    }else{
-      console.log("mag alles bekijken");
-    }
+    console.log("info", detections);
+    detections.map(person => {
+      if (person.age && person.age < 12) {
+        console.log("mag niet filmpjes bekijken onder 16");
+      } else {
+        console.log("mag alles bekijken");
+      }
+    })
+
   }, 100)
 })
