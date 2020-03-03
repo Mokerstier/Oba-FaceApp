@@ -64,10 +64,12 @@ video.addEventListener('play', () => {
       if (person.age && person.age < 12) {
         console.log("mag niet filmpjes bekijken onder 12");
         personAge.value = Math.floor(person.age)
+        personAge.click()
 
       } else {
         console.log("mag alles bekijken");
         personAge.value = Math.floor(person.age)
+        personAge.click()
       }
     })
 

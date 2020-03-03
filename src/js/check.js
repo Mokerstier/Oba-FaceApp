@@ -1,14 +1,15 @@
-import { renderData } from "./render.js";
+import {
+    renderData
+} from "./render.js";
 
 
-function checkAge (value) {
-    console.log('Change ik ?')
-        console.log('Ja')
-    if (value <= 50){
-        renderData(JSON.parse(localStorage.getItem("dataYoth")))
+function checkAge(value) {
+    console.log('Change')
+    console.log('value', value)
+    if (value <= 12) {
+        renderData(JSON.parse(localStorage.getItem("dataYouth")))
         console.log("kind")
-    }
-    else{
+    } else {
         renderData(JSON.parse(localStorage.getItem("dataOld")))
         console.log("volwassen")
     }
