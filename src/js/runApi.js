@@ -17,8 +17,8 @@ function runApi() {
     const angry = 'angry';
     const sad = 'sad';
 
-    const key = '03b058d877ec4276bb63dd1c6e1f3768';
-    const secret = 'a431539891cc1fe6735239fa1c138ee7';
+    const key = '1e19898c87464e239192c8bfe422f280';
+    const secret = '4289fec4e962a33118340c888699438d';
     const detail = 'Default';
 
     const urlHappy = `${cors}${endpoint}${happy}&authorization=${key}&detaillevel=${detail}&output=json`;
@@ -46,162 +46,187 @@ function runApi() {
         Authorization: `Bearer ${secret}`
     };
 
-    // fetch(urlHappy, config)
-    //     .then(response => {
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         localStorage.setItem('dataOldhappy', JSON.stringify(data))
-    //         console.log('old')
-    //         checkAge();
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
+    if(!localStorage.getItem('dataOldhappy')){
+    fetch(urlHappy, config)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem('dataOldhappy', JSON.stringify(data))
+            console.log('old')
+            checkAge();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
+    
+    if(!localStorage.getItem('dataYouthhappy')){
+        fetch(urlYouthHappy, config)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem('dataYouthhappy', JSON.stringify(data))
+            console.log('young')
+            checkAge();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
 
-    //     fetch(urlYouthHappy, config)
-    //     .then(response => {
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         localStorage.setItem('dataYouthhappy', JSON.stringify(data))
-    //         console.log('young')
-    //         checkAge();
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
+    if(!localStorage.getItem('dataOldsurprised')){
+        fetch(urlSurprised, config)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem('dataOldsurprised', JSON.stringify(data))
+            console.log('old')
+            checkAge();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
 
-    //     fetch(urlSurprised, config)
-    //     .then(response => {
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         localStorage.setItem('dataOldsurprised', JSON.stringify(data))
-    //         console.log('old')
-    //         checkAge();
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
+    if(!localStorage.getItem('dataYouthsurprised')){
+        fetch(urlYouthSurprised, config)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem('dataYouthsurprised', JSON.stringify(data))
+            console.log('young')
+            checkAge();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
 
-    //     fetch(urlYouthSurprised, config)
-    //     .then(response => {
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         localStorage.setItem('dataYouthsurprised', JSON.stringify(data))
-    //         console.log('young')
-    //         checkAge();
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
+    if(!localStorage.getItem('dataOldfearfull')){
+        fetch(urlFearfull, config)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem('dataOldfearfull', JSON.stringify(data))
+            console.log('old')
+            checkAge();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
 
-    //     fetch(urlFearfull, config)
-    //     .then(response => {
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         localStorage.setItem('dataOldfearfull', JSON.stringify(data))
-    //         console.log('old')
-    //         checkAge();
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
+    if(!localStorage.getItem('dataYouthfearfull')){
+        fetch(urlYouthFearfull, config)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem('dataYouthfearfull', JSON.stringify(data))
+            console.log('young')
+            checkAge();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
 
-    //     fetch(urlYouthFearfull, config)
-    //     .then(response => {
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         localStorage.setItem('dataYouthfearfull', JSON.stringify(data))
-    //         console.log('young')
-    //         checkAge();
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
+    if(!localStorage.getItem('dataOlddisgusted')){
+        fetch(urlDisgusted, config)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem('dataOlddisgusted', JSON.stringify(data))
+            console.log('old')
+            checkAge();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
 
-    //     fetch(urlDisgusted, config)
-    //     .then(response => {
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         localStorage.setItem('dataOlddisgusted', JSON.stringify(data))
-    //         console.log('old')
-    //         checkAge();
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
+    if(!localStorage.getItem('dataYouthdisgusted')){
+        fetch(urlYouthDisgusted, config)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem('dataYouthdisgusted', JSON.stringify(data))
+            console.log('young')
+            checkAge();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
 
-    //     fetch(urlYouthDisgusted, config)
-    //     .then(response => {
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         localStorage.setItem('dataYouthdisgusted', JSON.stringify(data))
-    //         console.log('young')
-    //         checkAge();
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
+    if(!localStorage.getItem('dataOldneutral')){
+        fetch(urlNeutral, config)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem('dataOldneutral', JSON.stringify(data))
+            console.log('old')
+            checkAge();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
 
-    //     fetch(urlNeutral, config)
-    //     .then(response => {
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         localStorage.setItem('dataOldneutral', JSON.stringify(data))
-    //         console.log('old')
-    //         checkAge();
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
+    if(!localStorage.getItem('dataYouthneutral')){
+        fetch(urlYouthNeutral, config)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem('dataYouthneutral', JSON.stringify(data))
+            console.log('young')
+            checkAge();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
 
-    //     fetch(urlYouthNeutral, config)
-    //     .then(response => {
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         localStorage.setItem('dataYouthneutral', JSON.stringify(data))
-    //         console.log('young')
-    //         checkAge();
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
+    if(!localStorage.getItem('dataOldangry')){
+        fetch(urlAngry, config)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem('dataOldangry', JSON.stringify(data))
+            console.log('old')
+            checkAge();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
 
-    //     fetch(urlAngry, config)
-    //     .then(response => {
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         localStorage.setItem('dataOldangry', JSON.stringify(data))
-    //         console.log('old')
-    //         checkAge();
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
+    if(!localStorage.getItem('dataYouthangry')){
+        fetch(urlYouthAngry, config)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem('dataYouthangry', JSON.stringify(data))
+            console.log('young')
+            checkAge();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
 
-    //     fetch(urlYouthAngry, config)
-    //     .then(response => {
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         localStorage.setItem('dataYouthangry', JSON.stringify(data))
-    //         console.log('young')
-    //         checkAge();
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
-
+    if (!localStorage.getItem('dataOldsad')){
         fetch(urlSad, config)
         .then(response => {
             return response.json();
@@ -214,7 +239,10 @@ function runApi() {
         .catch(err => {
             console.log(err);
         });
+    }
 
+    if (!localStorage.getItem('dataYouthsad')){
+        console.log('fetching sad-Youth')
         fetch(urlYouthSad, config)
         .then(response => {
             return response.json();
@@ -227,6 +255,7 @@ function runApi() {
         .catch(err => {
             console.log(err);
         });
+    }
 }
 
 export {
