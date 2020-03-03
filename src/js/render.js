@@ -2,6 +2,9 @@ function renderData(data) {
     const results = data.results;
     console.log(results);
     const main = document.querySelector('main');
+    Array.from(main.children).map(item => {
+        item.remove()
+    })
     
     results.forEach(element => {
         const title = createElement('h3',{

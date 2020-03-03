@@ -1,4 +1,5 @@
 const video = document.getElementById('video')
+const personAge = document.getElementById('personAge')
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
@@ -61,9 +62,12 @@ video.addEventListener('play', () => {
     console.log("info", detections);
     detections.map(person => {
       if (person.age && person.age < 12) {
-        console.log("mag niet filmpjes bekijken onder 16");
+        console.log("mag niet filmpjes bekijken onder 12");
+        personAge.value = Math.floor(person.age)
+
       } else {
         console.log("mag alles bekijken");
+        personAge.value = Math.floor(person.age)
       }
     })
 
