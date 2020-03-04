@@ -6,15 +6,15 @@ function renderData(data) {
         item.remove()
     })
     
-    results.forEach(element => {
+    results.forEach(book => {
         const title = createElement('h3',{
             options:{
-                text: element.titles[0]
+                text: book.titles[0]
             } 
         })
         const cover = createElement('img', {
             options: {
-                src: element.coverimages[1],
+                src: book.coverimages[1],
                 classNames: ['book-cover']
             }
         })
@@ -24,7 +24,13 @@ function renderData(data) {
             },
             children: [ title, cover ]
         })
-        main.appendChild(card)
+        const bookLink = createElement('a',{
+            options: {
+                href: `#${book.id}`
+            },
+            children: [ card ]
+        })
+        main.appendChild(bookLink)
     });
     
 }

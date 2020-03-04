@@ -37,6 +37,10 @@ header ul{
   list-style: none;
   display: flex;
 }
+main{
+  display: flex;
+  flex-wrap: wrap;
+}
 main section {
   opacity: 0;
   height: 0;
@@ -57,14 +61,31 @@ main section {
   z-index: 2;
   width: 100%;
 }
+
 /* Book details */
 .card-body{
+  /* background-color: yellow; */
+  display: flex;
+  flex-direction: column;
+  height: 25em;
+  align-items: center;
   max-width: 20em;
+  min-width: 20em;
+}
+.card-body h3{
+  padding-top: 1.5rem;
+}
+main a {
+  margin: 1rem;
+}
+main a:nth-of-type(odd) article{
   background-color: blueviolet;
 }
-.card-body:nth-of-type(odd){
+main a:nth-of-type(even) article{
   background-color: yellow;
 }
 .book-cover{
+  max-height: 60%;
+  object-fit: contain;
   width: 80%;
 }
