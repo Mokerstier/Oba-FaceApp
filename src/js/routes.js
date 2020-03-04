@@ -7,8 +7,14 @@ import {
 import {
   checkAge
 } from "./check.js";
+import { clearMain, renderOptions } from "./render.js";
 
 const routes = {
+  "intro": function() {
+    updateUI("intro");
+    clearMain();
+    renderOptions();
+  },
   "home": function () {
     updateUI("home");
     runApi();
