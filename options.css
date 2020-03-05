@@ -1,0 +1,41 @@
+/* Options cards */
+.options-container{
+    animation: slide forwards cubic-bezier(.57,.53,.37,1.24) 5s;
+    width: 80vw;
+    height: 20em;
+    position: relative;
+    
+}
+.options-title{
+    color: #fff;
+    display: block ;
+    font-size: 5em;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-shadow: 0 0 40px rgba(0, 0, 0, 1);
+    text-align: center;
+}
+.options-img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.sub-cat-title{
+    animation: slide forwards cubic-bezier(.57,.53,.37,1.24) 5s;
+    font-size: 5em;
+}
+@keyframes slide{
+    0%{
+        transform: translateX( 200vw) ;
+    }
+    10%{
+        transform: translateX(0%);
+    }
+    90%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-200vw);
+    }
+}

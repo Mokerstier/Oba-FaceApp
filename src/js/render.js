@@ -34,7 +34,7 @@ const optionsList = [
     },
     {
         subject: "transport",
-        img: "https://lh3.googleusercontent.com/proxy/6khZzqbkiv3QJn4IPkdwQncJH1E3Az9id9P4pYKMgoFJs_KCXUgTIRu1YsXljOmE-QW8cafoPWx516aHgWm5o5xk5VUKWWB7u2nQ-n12HTO7zCARk57JuMYeVpYu_MRnC3A",
+        img: "https://d1vpzb8ccuu79x.cloudfront.net/wp-content/uploads/transport-vector.jpg", 
         subcategory: [
             "trein",
             "auto"
@@ -45,14 +45,27 @@ const optionsList = [
 function renderOptions() {
     let optionsInterval = setInterval(() => {
         if (genre.value !== "happy") {
+            const title = createElement('h1', {
+                options: {
+                    text: optionsList[count].subject,
+                    classNames: ['options-title']
+                }
+            })
             const img = createElement('img', {
                 options: {
                     src: optionsList[count].img,
                     classNames: [optionsList[count].subject, 'options-img']
                 }
             })
+            const container = createElement('div', {
+                options: {
+                    classNames: ['options-container']
+                    
+                },
+                children: [img, title]
+            })
             clearSection(choicesSection)
-            choicesSection.appendChild(img)
+            choicesSection.appendChild(container)
             localStorage.setItem("count", count);
             
         } else {
@@ -73,6 +86,7 @@ function renderSub(indexCount , optionsInterval) {
         if (genre.value !== "happy") {
             const sub = createElement('h3', {
                 options: {
+                    classNames: ['sub-cat-title'],
                     text: optionsList[indexCount].subcategory[subCount],
                 }
             })
