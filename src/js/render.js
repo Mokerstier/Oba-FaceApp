@@ -1,6 +1,7 @@
 import { getDatafromCategorie } from "./runApi.js";
 
-const main = document.querySelector('main');
+const choicesSection = document.querySelector(".intro")
+const emotionsSection = document.querySelector(".home")
 
 let count = 0;
 let subCount = 0;
@@ -50,15 +51,14 @@ function renderOptions() {
                     classNames: [optionsList[count].subject, 'options-img']
                 }
             })
-            clearMain()
-            main.appendChild(img)
+            clearSection(choicesSection)
+            choicesSection.appendChild(img)
             localStorage.setItem("count", count);
-            console.log(`de huidige count = ${count}`)
+            
         } else {
-            clearMain()
+            clearSection(choicesSection)
             clearInterval(optionsInterval)
-            console.log(`gekozen count ${localStorage.getItem("count")}`)
-            renderSub(localStorage.getItem("count"))
+            renderSub(localStorage.getItem("count"), optionsInterval)
         }
         count = (count + 1) % optionsList.length
 
@@ -66,11 +66,10 @@ function renderOptions() {
 
 
 }
-function renderSub(indexCount) {
+function renderSub(indexCount , optionsInterval) {
 
-    console.log('hallo sub')
     let subInterval = setInterval(() => {
-        console.log("sub begint")
+
         if (genre.value !== "happy") {
             const sub = createElement('h3', {
                 options: {
@@ -78,33 +77,34 @@ function renderSub(indexCount) {
                 }
             })
             localStorage.setItem("subCount", subCount);
-            clearMain()
-            main.appendChild(sub)
+            clearSection(choicesSection)
+            choicesSection.appendChild(sub)
         } else {
-            clearMain()
+            clearSection(choicesSection)
             clearInterval(subInterval)
+            clearInterval(optionsInterval)
             const sub = createElement('h3', {
                 options: {
                     text: optionsList[indexCount].subcategory[localStorage.getItem("subCount")],
                 }
             })
-            getDatafromCategorie(optionsList[indexCount].subcategory[localStorage.getItem("subCount")])
-            main.appendChild(sub)
+            getDatafromCategorie(optionsList[indexCount].subcategory[localStorage.getItem("subCount")], choicesSection)
+            choicesSection.appendChild(sub)
 
         }
         subCount = (subCount + 1) % optionsList[indexCount].subcategory.length
     }, 5000)
 }
 
-function clearMain() {
-    Array.from(main.children).map(item => {
+function clearSection(section) {
+    Array.from(section.children).map(item => {
         item.remove()
     })
 }
-function renderData(data) {
+function renderData(data, section) {
     const results = data.results;
-    console.log(results);
-    clearMain()
+
+    clearSection(section)
 
     results.forEach(book => {
         const title = createElement('h3', {
@@ -130,7 +130,7 @@ function renderData(data) {
             },
             children: [card]
         })
-        main.appendChild(bookLink)
+        section.appendChild(bookLink)
     });
 
 }
@@ -162,6 +162,5 @@ function createElement(tag, { options, children }) {
 
 export {
     renderData,
-    clearMain,
     renderOptions
 }

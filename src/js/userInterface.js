@@ -4,7 +4,6 @@ function updateUI(route) {
     section.classList.remove("active");
   });
   const activeSection = document.querySelector(`[data-route=${route}]`);
-  console.log(activeSection);
   activeSection.classList.add("active");
 }
 

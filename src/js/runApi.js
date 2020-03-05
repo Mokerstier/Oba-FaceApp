@@ -1,11 +1,8 @@
 import {
-    renderData
-} from './render.js'
-import {
     checkAge 
 } from './check.js'
 
-function getDatafromCategorie(subject) {
+function getDatafromCategorie(subject, section) {
     const cors = 'https://cors-anywhere.herokuapp.com/';
     const endpoint = 'https://zoeken.oba.nl/api/v1/search/?q=';
     
@@ -29,17 +26,16 @@ function getDatafromCategorie(subject) {
             })
             .then(data => {
                 localStorage.setItem(`dataOld${subject}`, JSON.stringify(data))
-                console.log(data)
                 let value = personAge.value
-                checkAge(value, subject);
+                checkAge(value, subject, section);
             })
             .catch(err => {
                 console.log(err);
             });
         }else {
-            console.log(JSON.parse(localStorage.getItem(`dataOld${subject}`)))
+
             let value = personAge.value
-            checkAge(value, subject);
+            checkAge(value, subject, section);
         }
     if(!localStorage.getItem(`dataYouth${subject}`)){
             fetch(youthUrl, config)
@@ -48,17 +44,15 @@ function getDatafromCategorie(subject) {
                 })
                 .then(data => {
                     localStorage.setItem(`dataYouth${subject}`, JSON.stringify(data))
-                    console.log(data)
                     let value = personAge.value
-                    checkAge(value, subject);
+                    checkAge(value, subject, section);
                 })
                 .catch(err => {
                     console.log(err);
                 });
             }else {
-                console.log(JSON.parse(localStorage.getItem(`dataYouth${subject}`)))
                 let value = personAge.value
-                checkAge(value, subject);
+                checkAge(value, subject, section);
             }
 }
 function runApi() {
@@ -109,8 +103,8 @@ function runApi() {
         })
         .then(data => {
             localStorage.setItem('dataOldhappy', JSON.stringify(data))
-            console.log('old')
-            checkAge();
+
+            //checkAge();
         })
         .catch(err => {
             console.log(err);
@@ -124,8 +118,8 @@ function runApi() {
         })
         .then(data => {
             localStorage.setItem('dataYouthhappy', JSON.stringify(data))
-            console.log('young')
-            checkAge();
+
+            //checkAge();
         })
         .catch(err => {
             console.log(err);
@@ -139,8 +133,8 @@ function runApi() {
         })
         .then(data => {
             localStorage.setItem('dataOldsurprised', JSON.stringify(data))
-            console.log('old')
-            checkAge();
+
+            //checkAge();
         })
         .catch(err => {
             console.log(err);
@@ -154,8 +148,8 @@ function runApi() {
         })
         .then(data => {
             localStorage.setItem('dataYouthsurprised', JSON.stringify(data))
-            console.log('young')
-            checkAge();
+
+            //checkAge();
         })
         .catch(err => {
             console.log(err);
@@ -169,8 +163,8 @@ function runApi() {
         })
         .then(data => {
             localStorage.setItem('dataOldfearfull', JSON.stringify(data))
-            console.log('old')
-            checkAge();
+
+            //checkAge();
         })
         .catch(err => {
             console.log(err);
@@ -184,8 +178,8 @@ function runApi() {
         })
         .then(data => {
             localStorage.setItem('dataYouthfearfull', JSON.stringify(data))
-            console.log('young')
-            checkAge();
+
+            //checkAge();
         })
         .catch(err => {
             console.log(err);
@@ -199,8 +193,8 @@ function runApi() {
         })
         .then(data => {
             localStorage.setItem('dataOlddisgusted', JSON.stringify(data))
-            console.log('old')
-            checkAge();
+
+            //checkAge();
         })
         .catch(err => {
             console.log(err);
@@ -214,8 +208,8 @@ function runApi() {
         })
         .then(data => {
             localStorage.setItem('dataYouthdisgusted', JSON.stringify(data))
-            console.log('young')
-            checkAge();
+
+            //checkAge();
         })
         .catch(err => {
             console.log(err);
@@ -229,8 +223,8 @@ function runApi() {
         })
         .then(data => {
             localStorage.setItem('dataOldneutral', JSON.stringify(data))
-            console.log('old')
-            checkAge();
+
+            //checkAge();
         })
         .catch(err => {
             console.log(err);
@@ -244,8 +238,8 @@ function runApi() {
         })
         .then(data => {
             localStorage.setItem('dataYouthneutral', JSON.stringify(data))
-            console.log('young')
-            checkAge();
+
+            //checkAge();
         })
         .catch(err => {
             console.log(err);
@@ -259,8 +253,8 @@ function runApi() {
         })
         .then(data => {
             localStorage.setItem('dataOldangry', JSON.stringify(data))
-            console.log('old')
-            checkAge();
+
+            //checkAge();
         })
         .catch(err => {
             console.log(err);
@@ -274,8 +268,8 @@ function runApi() {
         })
         .then(data => {
             localStorage.setItem('dataYouthangry', JSON.stringify(data))
-            console.log('young')
-            checkAge();
+
+            //checkAge();
         })
         .catch(err => {
             console.log(err);
@@ -289,8 +283,8 @@ function runApi() {
         })
         .then(data => {
             localStorage.setItem('dataOldsad', JSON.stringify(data))
-            console.log('old')
-            checkAge();
+
+            //checkAge();
         })
         .catch(err => {
             console.log(err);
@@ -298,15 +292,14 @@ function runApi() {
     }
 
     if (!localStorage.getItem('dataYouthsad')){
-        console.log('fetching sad-Youth')
         fetch(urlYouthSad, config)
         .then(response => {
             return response.json();
         })
         .then(data => {
             localStorage.setItem('dataYouthsad', JSON.stringify(data))
-            console.log('young')
-            checkAge();
+
+            //checkAge();
         })
         .catch(err => {
             console.log(err);

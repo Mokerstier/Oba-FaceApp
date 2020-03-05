@@ -37,7 +37,7 @@ header ul{
   list-style: none;
   display: flex;
 }
-main{
+main section{
   display: flex;
   flex-wrap: wrap;
 }
@@ -47,10 +47,8 @@ main section {
   overflow: hidden;
   padding-top: 0;
   transition: 0.25s;
-  /* position: absolute; */
   top: 0;
   left: 0;
-  visibility: hidden;
   z-index: 1;
 }
 
@@ -64,7 +62,6 @@ main section {
 
 /* Book details */
 .card-body{
-  /* background-color: yellow; */
   display: flex;
   flex-direction: column;
   height: 25em;
