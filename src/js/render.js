@@ -60,15 +60,21 @@ function renderOptions() {
         // if (count == 4) {
         //     count = 0;
         // }
-        count = count % optionsList.length
-        console.log(count, optionsList.length, count % optionsList.length )
-        if (genre.value == "happy") {
+        // count = (count + 1) % optionsList.length
+       // console.log(count, optionsList.length, count % optionsList.length )
+        if (genre.value !== "happy") {
+            const img = createElement('img', {
+                options: {
+                    src: optionsList[count].img,
+                    classNames: [optionsList[count].subject, 'options-img']
+                }
+                
+            })
             clearMain()
-            clearInterval(optionsInterval)
-            renderSub()
-            console.log(`eerste ${count}`)
-
-
+            main.appendChild(img)
+            localStorage.setItem("count", count);
+            // count++
+            console.log(`de huidige count = ${count}`)
             // if(count == 0){
             //     console.log("verderrrrrrrrrrrrrr")
             //     console.log(optionsList[count].subject)
@@ -79,32 +85,26 @@ function renderOptions() {
             //     getDatafromCategorie(optionsList[count-1].subject)
             // }
         } else {
-            const img = createElement('img', {
-                options: {
-                    src: optionsList[count].img,
-                    classNames: [optionsList[count].subject, 'options-img']
-                }
-            })
-
             clearMain()
-            main.appendChild(img)
-
-            count++
-            console.log(`tweede ${count}`)
+            clearInterval(optionsInterval)
+            console.log(`gekozen count ${localStorage.getItem("count")}`)
+            renderSub(localStorage.getItem("count"))
         }
+        count = (count + 1) % optionsList.length
+        
     }, 5000)
 
 
 }
-function renderSub(){
-    count = count % optionsList.length
+function renderSub(count){
+    
     console.log('hallo sub')
     let subInterval = setInterval(() => {
-        console.log("hi")
-        if (subCount == 2) {
-            subCount = 0
-        }
-        subCount = subCount % optionsList[count].subcategory.length
+        console.log("sub begint")
+        // if (subCount == 2) {
+        //     subCount = 0
+        // }
+        // subCount = (subCount + 1) % optionsList[count].subcategory.length
         if (genre.value == "happy") {
             clearMain()
             clearInterval(subInterval)
@@ -113,20 +113,20 @@ function renderSub(){
                     console.log('print eerste Subtext')
                     const sub = createElement('h3', {
                         options: {
-                            text: optionsList[0].subcategory[0],
+                            text: optionsList[0].subcategory[localStorage.getItem("subCount")],
                         }
                     })
-                    getDatafromCategorie(optionsList[0].subcategory[0])
+                    getDatafromCategorie(optionsList[0].subcategory[localStorage.getItem("subCount")])
                     main.appendChild(sub)
 
                 } else {
                     console.log('print tweede Subtext')
                     const sub = createElement('h3', {
                         options: {
-                            text: optionsList[0].subcategory[subCount],
+                            text: optionsList[0].subcategory[localStorage.getItem("subCount")],
                         }
                     })
-                    getDatafromCategorie(optionsList[0].subcategory[subCount])
+                    getDatafromCategorie(optionsList[0].subcategory[localStorage.getItem("subCount")])
                     main.appendChild(sub)
 
                 }
@@ -134,19 +134,19 @@ function renderSub(){
                 if (subCount == 0) {
                     const sub = createElement('h3', {
                         options: {
-                            text: optionsList[count].subcategory[0],
+                            text: optionsList[count].subcategory[localStorage.getItem("subCount")],
                         }
                     })
 
                     main.appendChild(sub)
-                    getDatafromCategorie(optionsList[count].subcategory[0])
+                    getDatafromCategorie(optionsList[count].subcategory[localStorage.getItem("subCount")])
                 } else {
                     const sub = createElement('h3', {
                         options: {
-                            text: optionsList[count].subcategory[subCount],
+                            text: optionsList[count].subcategory[localStorage.getItem("subCount")],
                         }
                     })  
-                    getDatafromCategorie(optionsList[count].subcategory[subCount])
+                    getDatafromCategorie(optionsList[count].subcategory[localStorage.getItem("subCount")])
                     main.appendChild(sub)
 
                 }
@@ -162,7 +162,9 @@ function renderSub(){
                     clearMain()
                     
                     main.appendChild(sub)
-                    subCount = subCount +1
+                    localStorage.setItem("subCount", subCount);
+                    //subCount = subCount +1
+                    subCount = (subCount + 1) % optionsList[count].subcategory.length
                     //console.log("count 0 sub 0")
 
                 } else {
@@ -173,7 +175,9 @@ function renderSub(){
                     })
                     clearMain()
                     main.appendChild(sub)
-                    subCount = subCount +1
+                    //subCount = subCount +1
+                    localStorage.setItem("subCount", subCount);
+                    subCount = (subCount + 1) % optionsList[count].subcategory.length
                     //console.log("count 0 sub niet")
                 }
 
@@ -187,7 +191,9 @@ function renderSub(){
 
                     clearMain()
                     main.appendChild(sub)
-                    subCount = subCount +1
+                    //subCount = subCount +1
+                    localStorage.setItem("subCount", subCount);
+                    subCount = (subCount + 1) % optionsList[count].subcategory.length
                     //console.log("count niet sub 0")
 
                 } else {
@@ -199,7 +205,9 @@ function renderSub(){
 
                     clearMain()
                     main.appendChild(sub)
-                    subCount = subCount +1
+                    //subCount = subCount +1
+                    localStorage.setItem("subCount", subCount);
+                    subCount = (subCount + 1) % optionsList[count].subcategory.length
                     //console.log("count niet sub niet")
 
                 }
@@ -207,6 +215,7 @@ function renderSub(){
         }
     }, 5000)
 }
+
 function clearMain() {
     Array.from(main.children).map(item => {
         item.remove()
