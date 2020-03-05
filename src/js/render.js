@@ -1,4 +1,6 @@
-import { getDatafromCategorie } from "./runApi.js";
+import {
+    getDatafromCategorie
+} from "./runApi.js";
 
 const choicesSection = document.querySelector(".intro")
 const emotionsSection = document.querySelector(".home")
@@ -7,8 +9,7 @@ let count = 0;
 let subCount = 0;
 const genre = document.getElementById("genre");
 
-const optionsList = [
-    {
+const optionsList = [{
         subject: "dieren",
         img: "https://www.vvhellas.nl/wp-content/uploads/2017/10/volleybalvereniging-hellas-nunspeet-heren1-dieren-op-bezoek.jpg",
         subcategory: [
@@ -34,7 +35,7 @@ const optionsList = [
     },
     {
         subject: "transport",
-        img: "https://d1vpzb8ccuu79x.cloudfront.net/wp-content/uploads/transport-vector.jpg", 
+        img: "https://d1vpzb8ccuu79x.cloudfront.net/wp-content/uploads/transport-vector.jpg",
         subcategory: [
             "trein",
             "auto"
@@ -60,14 +61,14 @@ function renderOptions() {
             const container = createElement('div', {
                 options: {
                     classNames: ['options-container']
-                    
+
                 },
                 children: [img, title]
             })
             clearSection(choicesSection)
             choicesSection.appendChild(container)
             localStorage.setItem("count", count);
-            
+
         } else {
             clearSection(choicesSection)
             clearInterval(optionsInterval)
@@ -79,7 +80,8 @@ function renderOptions() {
 
 
 }
-function renderSub(indexCount , optionsInterval) {
+
+function renderSub(indexCount, optionsInterval) {
 
     let subInterval = setInterval(() => {
 
@@ -97,14 +99,7 @@ function renderSub(indexCount , optionsInterval) {
             clearSection(choicesSection)
             clearInterval(subInterval)
             clearInterval(optionsInterval)
-            const sub = createElement('h3', {
-                options: {
-                    text: optionsList[indexCount].subcategory[localStorage.getItem("subCount")],
-                }
-            })
             getDatafromCategorie(optionsList[indexCount].subcategory[localStorage.getItem("subCount")], choicesSection)
-            choicesSection.appendChild(sub)
-
         }
         subCount = (subCount + 1) % optionsList[indexCount].subcategory.length
     }, 5000)
@@ -115,6 +110,7 @@ function clearSection(section) {
         item.remove()
     })
 }
+
 function renderData(data, section) {
     const results = data.results;
 
@@ -149,7 +145,10 @@ function renderData(data, section) {
 
 }
 
-function createElement(tag, { options, children }) {
+function createElement(tag, {
+    options,
+    children
+}) {
     const element = document.createElement(tag)
 
     if (options.classNames) {
