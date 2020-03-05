@@ -1,9 +1,14 @@
 .video-container {
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   margin: 0 auto;
   display: block;
   position: relative;
   margin-bottom: 0.5em;
+}
+
+form {
+  margin-left: 4em;
 }
 
 .video-container canvas {
@@ -13,61 +18,100 @@
   right: 0;
   bottom: 0;
 }
+
 input[type=text] {
   pointer-events: none;
   -webkit-appearance: none;
-  border-color: #99258d;
+  border-color: rgb(235, 235, 235);
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(153, 37, 141, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(153, 37, 141, 0.6);
+  font-size: 12px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(235, 235, 235);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(235, 235, 235);
 
 }
-html{
+
+.kind input[type=text] {
+  pointer-events: none;
+  -webkit-appearance: none;
+  border-color: rgb(235, 235, 235);
+  outline: 0;
+  font-size: 12px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px blueviolet;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px blueviolet;
+
+}
+
+form input {
+  margin-right: 1em;
+}
+
+html {
   font-family: 'Avenir', 'Arial', sans-serif;
 }
-header ul, h1, h2, h3{
+
+header ul,
+h1,
+h2,
+h3 {
   font-weight: 700;
   display: flex;
 }
+
 .oba img {
   width: 150px;
 }
-.junior{
+
+.junior {
   display: none;
 }
-.log{
+
+.log {
   display: block;
 }
-.kind .logo{
+
+.kind .logo {
   display: none;
 }
-.kind .junior{
+
+.kind .junior {
   display: block;
+  width: 100px;
+  margin-right: 50px;
 }
-h3{
+
+h3 {
   padding: 0 1.5rem;
 }
-header nav a, header nav a:visited{
+
+header nav a,
+header nav a:visited {
   text-decoration: none;
   color: #000;
 }
-header nav li{
+
+header nav li {
   display: flex;
   align-items: center;
   padding: 0 1.5rem;
 }
-header nav li:hover a{
+
+header nav li:hover a {
   cursor: pointer;
   color: red;
 }
-header ul{
+
+header ul {
   list-style: none;
   display: flex;
+  height: 5em;
 }
-main section{
+
+main section {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
+
 main section {
   opacity: 0;
   height: 0;
@@ -91,14 +135,16 @@ main section {
 
 /* Book details */
 /* Junior */
-.kind a:nth-of-type(odd) .card-body{
+.kind a:nth-of-type(odd) .card-body {
   background-color: blueviolet;
 }
-.kind a:nth-of-type(even) .card-body{
+
+.kind a:nth-of-type(even) .card-body {
   background-color: yellow;
 }
+
 /* Normaal */
-.card-body{
+.card-body {
   background-color: rgb(235, 235, 235);
   display: flex;
   flex-direction: column;
@@ -108,17 +154,19 @@ main section {
   min-width: 20em;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.087);
 }
-.card-body h3{
+
+.card-body h3 {
   max-height: 1.5em;
   overflow-y: hidden;
 }
+
 main a {
   color: #000;
   text-decoration: none;
   margin: 1rem;
 }
 
-.book-cover{
+.book-cover {
   max-height: 60%;
   object-fit: contain;
   width: 80%;
