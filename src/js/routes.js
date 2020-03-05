@@ -13,10 +13,21 @@ const routes = {
   "intro": function() {
     updateUI("intro");
     renderOptions();
+
+    const opnieuwBtn = document.querySelector("button");
+    opnieuwBtn.classList.add("display");
+    opnieuwBtn.addEventListener('click', ()=>{
+      location.reload();
+    })
   },
   "home": function () {
     updateUI("home");
     runApi();
+    const opnieuwBtn = document.querySelector("button");
+    opnieuwBtn.classList.remove("display");
+    opnieuwBtn.addEventListener('click', ()=>{
+      location.reload();
+    })
     const genre = document.getElementById("genre");
     const personAge = document.getElementById('personAge');
     const emotionSection = document.querySelector('.home');

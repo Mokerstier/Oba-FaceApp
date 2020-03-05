@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>facebook</title>
+  <link rel="icon" href="https://zoeken.oba.nl/icons/oba.ico?v=1">
+  <title>oba-face</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="options.css">
   <script defer src="face-api.min.js"></script>
@@ -18,34 +19,53 @@
     <nav>
       <ul>
         <li><a class="oba" href="">
-          <img class="junior" src="/src/img/obajunior.png" alt="obajunior-logo">
-          <img class="logo" src="/src/img/oba-logo.png" alt="oba-logo">
-        </a></li>
+            <img class="junior" src="/src/img/obajunior.png" alt="obajunior-logo">
+            <img class="logo" src="/src/img/oba-logo.png" alt="oba-logo">
+          </a></li>
         <li><a href="#home">krijg boeken door je emoties</a></li>
         <li><a href="#intro">kies met je glimlach</a></li>
       </ul>
     </nav>
   </header>
+  <div class="des-container">
+    <p class="description">
+      Met deze applicatie kun je op basis van emotie een lijst met boeken genereren. 
+      Of je kunt een categorie kiezen door te glimlachen.
+    </p>
+    <div class="video-container">
+      <video id="video" width="300" height="200" autoplay muted></video>
+    </div>
 
-  <div class="video-container">
-    <video id="video" width="300" height="200" autoplay muted></video>
+    <form id="form" action="">
+      <p>
+        <label for="personAge">je leeftijd</label>
+        <input type="text" name="age" id="personAge">
+      </p>
+      <p>
+        <label for="genre">Je emotie</label>
+        <input type="text" name="expression" id="genre">
+      </p>
+      <button>opnieuw kiezen</button>
+    </form>
   </div>
-
-  <form id="form" action="">
-    <p>
-    <label for="personAge">je leeftijd</label>
-    <input type="text" name="age" id="personAge">
-  </p>
-  <p>
-    <label for="genre">Je emotie</label>
-    <input type="text" name="expression" id="genre">
-  </p>
-  </form>
   <main id="app">
-    <section class="intro" data-route="intro"></section>
-    <section class="home" data-route="home"></section>
+    <section class="intro" data-route="intro">
+      <div class="loader book">
+        <figure class="page"></figure>
+        <figure class="page"></figure>
+        <figure class="page"></figure>
+      </div>
+    </section>
+    <section class="home" data-route="home">
+      <div class="loader book">
+        <figure class="page"></figure>
+        <figure class="page"></figure>
+        <figure class="page"></figure>
+      </div>
+    </section>
   </main>
   <script src="src/js/script.js" type="module"></script>
   <script src="src/js/vendor/transparency.min.js"></script>
 </body>
+
 </html>
