@@ -1,41 +1,50 @@
+import { getDatafromCategorie } from "./runApi.js";
+
 const main = document.querySelector('main');
+
+let count = 0;
+let subCount = 0;
+const genre = document.getElementById("genre");
+
+const optionsList = [
+    {
+        subject: "dieren",
+        img: "https://www.vvhellas.nl/wp-content/uploads/2017/10/volleybalvereniging-hellas-nunspeet-heren1-dieren-op-bezoek.jpg",
+        subcategory: [
+            "wilde dieren",
+            "huisdieren"
+        ]
+    },
+    {
+        subject: "sport",
+        img: "https://www.1limburg.nl/sites/default/files/public/styles/media-paragraph/public/635291.jpg?itok=Fc7C_bcJ",
+        subcategory: [
+            "voetbal",
+            "basketball"
+        ]
+    },
+    {
+        subject: "landen",
+        img: "https://www.kaartenenatlassen.nl/sites/default/files/styles/product_image/public/ENG_GL_NA_550_3000PX.jpg?itok=zFdyRNKf",
+        subcategory: [
+            "architectuur",
+            "geschiedenis"
+        ]
+    },
+    {
+        subject: "transport",
+        img: "https://lh3.googleusercontent.com/proxy/6khZzqbkiv3QJn4IPkdwQncJH1E3Az9id9P4pYKMgoFJs_KCXUgTIRu1YsXljOmE-QW8cafoPWx516aHgWm5o5xk5VUKWWB7u2nQ-n12HTO7zCARk57JuMYeVpYu_MRnC3A",
+        subcategory: [
+            "trein",
+            "auto"
+        ]
+    },
+]
+
 function renderOptions() {
     //Logica voor de lijst met keuzes
     // foto if(happy) => 
-    const optionsList = [
-        {
-            subject: "dieren",
-            img: "https://www.vvhellas.nl/wp-content/uploads/2017/10/volleybalvereniging-hellas-nunspeet-heren1-dieren-op-bezoek.jpg",
-            subcategory: [
-                "wilde dieren",
-                "huisdieren"
-            ]
-        },
-        {
-            subject: "sport",
-            img: "https://www.1limburg.nl/sites/default/files/public/styles/media-paragraph/public/635291.jpg?itok=Fc7C_bcJ",
-            subcategory: [
-                "voetbal",
-                "basketball"
-            ]
-        },
-        {
-            subject: "landen",
-            img: "https://www.kaartenenatlassen.nl/sites/default/files/styles/product_image/public/ENG_GL_NA_550_3000PX.jpg?itok=zFdyRNKf",
-            subcategory: [
-                "architectuur",
-                "geschiedenis"
-            ]
-        },
-        {
-            subject: "transport",
-            img: "https://lh3.googleusercontent.com/proxy/6khZzqbkiv3QJn4IPkdwQncJH1E3Az9id9P4pYKMgoFJs_KCXUgTIRu1YsXljOmE-QW8cafoPWx516aHgWm5o5xk5VUKWWB7u2nQ-n12HTO7zCARk57JuMYeVpYu_MRnC3A",
-            subcategory: [
-                "trein",
-                "auto"
-            ]
-        },
-    ]
+    
     // optionsList.map(item => {
     //    const img = createElement('img', {
     //         options:{
@@ -45,21 +54,158 @@ function renderOptions() {
     //     })
     //     main.appendChild(img)
     // })
-    let count = 0;
-        setInterval(() => {
-            if (count == 4) {   
-                count = 0;
-            }
+    
+
+    let optionsInterval = setInterval(() => {
+        // if (count == 4) {
+        //     count = 0;
+        // }
+        count = count % optionsList.length
+        console.log(count, optionsList.length, count % optionsList.length )
+        if (genre.value == "happy") {
+            clearMain()
+            clearInterval(optionsInterval)
+            renderSub()
+            console.log(`eerste ${count}`)
+
+
+            // if(count == 0){
+            //     console.log("verderrrrrrrrrrrrrr")
+            //     console.log(optionsList[count].subject)
+            //     getDatafromCategorie(optionsList[count].subject)
+            // }else{
+            //     console.log("verderrrrrrrrrrrrrr")
+            //     console.log(optionsList[count-1].subject)
+            //     getDatafromCategorie(optionsList[count-1].subject)
+            // }
+        } else {
             const img = createElement('img', {
                 options: {
                     src: optionsList[count].img,
                     classNames: [optionsList[count].subject, 'options-img']
                 }
             })
-            count++
+
             clearMain()
             main.appendChild(img)
-        }, 3000)
+
+            count++
+            console.log(`tweede ${count}`)
+        }
+    }, 5000)
+
+
+}
+function renderSub(){
+    count = count % optionsList.length
+    console.log('hallo sub')
+    let subInterval = setInterval(() => {
+        console.log("hi")
+        if (subCount == 2) {
+            subCount = 0
+        }
+        subCount = subCount % optionsList[count].subcategory.length
+        if (genre.value == "happy") {
+            clearMain()
+            clearInterval(subInterval)
+            if (count == 0) {
+                if (subCount == 0) {
+                    console.log('print eerste Subtext')
+                    const sub = createElement('h3', {
+                        options: {
+                            text: optionsList[0].subcategory[0],
+                        }
+                    })
+                    getDatafromCategorie(optionsList[0].subcategory[0])
+                    main.appendChild(sub)
+
+                } else {
+                    console.log('print tweede Subtext')
+                    const sub = createElement('h3', {
+                        options: {
+                            text: optionsList[0].subcategory[subCount],
+                        }
+                    })
+                    getDatafromCategorie(optionsList[0].subcategory[subCount])
+                    main.appendChild(sub)
+
+                }
+            } else {
+                if (subCount == 0) {
+                    const sub = createElement('h3', {
+                        options: {
+                            text: optionsList[count].subcategory[0],
+                        }
+                    })
+
+                    main.appendChild(sub)
+                    getDatafromCategorie(optionsList[count].subcategory[0])
+                } else {
+                    const sub = createElement('h3', {
+                        options: {
+                            text: optionsList[count].subcategory[subCount],
+                        }
+                    })  
+                    getDatafromCategorie(optionsList[count].subcategory[subCount])
+                    main.appendChild(sub)
+
+                }
+            }
+        } else {
+            if (count == 0) {
+                if (subCount == 0) {
+                    const sub = createElement('h3', {
+                        options: {
+                            text: optionsList[0].subcategory[0],
+                        }
+                    })
+                    clearMain()
+                    
+                    main.appendChild(sub)
+                    subCount = subCount +1
+                    //console.log("count 0 sub 0")
+
+                } else {
+                    const sub = createElement('h3', {
+                        options: {
+                            text: optionsList[0].subcategory[subCount],
+                        }
+                    })
+                    clearMain()
+                    main.appendChild(sub)
+                    subCount = subCount +1
+                    //console.log("count 0 sub niet")
+                }
+
+            } else {
+                if (subCount == 0) {
+                    const sub = createElement('h3', {
+                        options: {
+                            text: optionsList[count].subcategory[0],
+                        }
+                    })
+
+                    clearMain()
+                    main.appendChild(sub)
+                    subCount = subCount +1
+                    //console.log("count niet sub 0")
+
+                } else {
+                    const sub = createElement('h3', {
+                        options: {
+                            text: optionsList[count].subcategory[subCount],
+                        }
+                    })
+
+                    clearMain()
+                    main.appendChild(sub)
+                    subCount = subCount +1
+                    //console.log("count niet sub niet")
+
+                }
+            }
+        }
+    }, 5000)
 }
 function clearMain() {
     Array.from(main.children).map(item => {
@@ -69,10 +215,7 @@ function clearMain() {
 function renderData(data) {
     const results = data.results;
     console.log(results);
-
-    // Array.from(main.children).map(item => {
-    //     item.remove()
-    // })
+    clearMain()
 
     results.forEach(book => {
         const title = createElement('h3', {

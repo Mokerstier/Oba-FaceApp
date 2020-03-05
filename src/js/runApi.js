@@ -5,6 +5,62 @@ import {
     checkAge 
 } from './check.js'
 
+function getDatafromCategorie(subject) {
+    const cors = 'https://cors-anywhere.herokuapp.com/';
+    const endpoint = 'https://zoeken.oba.nl/api/v1/search/?q=';
+    
+    const key = '1e19898c87464e239192c8bfe422f280';
+    const secret = '4289fec4e962a33118340c888699438d';
+    const detail = 'Default';
+
+    const config = {
+        Authorization: `Bearer ${secret}`
+    };
+
+    const url = `${cors}${endpoint}${subject}&authorization=${key}&detaillevel=${detail}&output=json`
+    const youthUrl = `${cors}${endpoint}${subject}&authorization=${key}&p=jeugd&detaillevel=${detail}&output=json`
+
+    const personAge = document.getElementById('personAge');
+
+    if(!localStorage.getItem(`dataOld${subject}`)){
+        fetch(url, config)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                localStorage.setItem(`dataOld${subject}`, JSON.stringify(data))
+                console.log(data)
+                let value = personAge.value
+                checkAge(value, subject);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        }else {
+            console.log(JSON.parse(localStorage.getItem(`dataOld${subject}`)))
+            let value = personAge.value
+            checkAge(value, subject);
+        }
+    if(!localStorage.getItem(`dataYouth${subject}`)){
+            fetch(youthUrl, config)
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    localStorage.setItem(`dataYouth${subject}`, JSON.stringify(data))
+                    console.log(data)
+                    let value = personAge.value
+                    checkAge(value, subject);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+            }else {
+                console.log(JSON.parse(localStorage.getItem(`dataYouth${subject}`)))
+                let value = personAge.value
+                checkAge(value, subject);
+            }
+}
 function runApi() {
     const cors = 'https://cors-anywhere.herokuapp.com/';
     const endpoint = 'https://zoeken.oba.nl/api/v1/search/?q=';
@@ -259,5 +315,6 @@ function runApi() {
 }
 
 export {
-    runApi
+    runApi,
+    getDatafromCategorie
 }
