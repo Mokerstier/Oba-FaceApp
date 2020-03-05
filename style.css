@@ -13,11 +13,36 @@
   right: 0;
   bottom: 0;
 }
+input[type=text] {
+  pointer-events: none;
+  -webkit-appearance: none;
+  border-color: #99258d;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(153, 37, 141, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(153, 37, 141, 0.6);
+
+}
 html{
   font-family: 'Avenir', 'Arial', sans-serif;
 }
 header ul, h1, h2, h3{
   font-weight: 700;
+  display: flex;
+}
+.oba img {
+  width: 150px;
+}
+.junior{
+  display: none;
+}
+.log{
+  display: block;
+}
+.kind .logo{
+  display: none;
+}
+.kind .junior{
+  display: block;
 }
 h3{
   padding: 0 1.5rem;
@@ -27,6 +52,8 @@ header nav a, header nav a:visited{
   color: #000;
 }
 header nav li{
+  display: flex;
+  align-items: center;
   padding: 0 1.5rem;
 }
 header nav li:hover a{
@@ -61,26 +88,34 @@ main section {
 }
 
 /* Book details */
+/* Junior */
+.kind a:nth-of-type(odd) .card-body{
+  background-color: blueviolet;
+}
+.kind a:nth-of-type(even) .card-body{
+  background-color: yellow;
+}
+/* Normaal */
 .card-body{
+  background-color: rgb(235, 235, 235);
   display: flex;
   flex-direction: column;
   height: 25em;
   align-items: center;
   max-width: 20em;
   min-width: 20em;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.087);
 }
 .card-body h3{
-  padding-top: 1.5rem;
+  max-height: 1.5em;
+  overflow-y: hidden;
 }
 main a {
+  color: #000;
+  text-decoration: none;
   margin: 1rem;
 }
-main a:nth-of-type(odd) article{
-  background-color: blueviolet;
-}
-main a:nth-of-type(even) article{
-  background-color: yellow;
-}
+
 .book-cover{
   max-height: 60%;
   object-fit: contain;

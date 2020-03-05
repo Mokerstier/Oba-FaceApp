@@ -13,19 +13,27 @@
 
 <body>
 
-  <div class="video-container">
-    <video id="video" width="600" height="440" autoplay muted></video>
-  </div>
   <header>
     <nav>
       <ul>
+        <li><a class="oba" href="">
+          <img class="junior" src="/src/img/obajunior.png" alt="obajunior-logo">
+          <img class="logo" src="/src/img/oba-logo.png" alt="oba-logo">
+        </a></li>
         <li><a href="#home">krijg boeken door je emoties</a></li>
         <li><a href="#intro">kies met je glimlach</a></li>
       </ul>
     </nav>
   </header>
+
+  <div class="video-container">
+    <video id="video" width="600" height="440" autoplay muted></video>
+  </div>
+
   <form id="form" action="">
+    <label for="personAge">je leeftijd</label>
     <input type="text" name="age" id="personAge">
+    <label for="genre">Je emotie</label>
     <input type="text" name="expression" id="genre">
   </form>
   <main id="app">
