@@ -2,7 +2,7 @@
 .options-container{
     animation: slide forwards cubic-bezier(.57,.53,.37,1.24) 5s;
     width: 80vw;
-    height: 20em;
+    height: 60vh;
     position: relative;
     
 }
@@ -11,7 +11,7 @@
     display: block ;
     font-size: 5em;
     position: absolute;
-    top: 0;
+    top: 25%;
     width: 100%;
     text-shadow: 0 0 40px rgba(0, 0, 0, 1);
     text-align: center;
