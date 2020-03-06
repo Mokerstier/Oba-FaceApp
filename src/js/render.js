@@ -136,13 +136,65 @@ function renderData(data, section) {
         })
         const bookLink = createElement('a', {
             options: {
-                href: `#${book.id}`
+                href: `#details/${book.id}`
             },
             children: [card]
         })
         section.appendChild(bookLink)
     });
 
+}
+function renderDetail(data){
+    const detailSection = document.querySelector(".details")
+    clearSection(detailSection);
+    const authors = createElement('span', {
+        options:{
+            text: data.authors
+        }
+    })
+    const authorTitle = createElement('p', {
+        options:{
+            text: 'Authors: '
+            },
+        children:[authors]
+    })
+   
+    const lang = createElement('p', {
+        options:{
+            text: `Taal: ${data.languages}`
+        }
+    })
+    const year = createElement('p', {
+        options:{
+            text: `Jaar: ${data.year}`
+        }
+    })
+    const description = createElement('p', {
+        options:{
+            text: `Summaries: ${data.summaries}`
+        },
+        classNames:['description-detail']
+    })
+    const cover = createElement('img', {
+        options: {
+            src: data.coverimages[0],
+            classNames: ['book-cover-detail']
+        }
+    })
+    const title = createElement('h3', {
+        options:{
+            classNames: ['title-detail']
+        }
+    })
+
+    const div = createElement('div', {
+        options: {
+            classNames: ['detail-block']
+        },
+        children: [cover, title, description, lang, authorTitle, year]
+    }
+    )
+    detailSection.appendChild(div)
 }
 
 function createElement(tag, {
@@ -175,5 +227,6 @@ function createElement(tag, {
 
 export {
     renderData,
-    renderOptions
+    renderOptions,
+    renderDetail
 }

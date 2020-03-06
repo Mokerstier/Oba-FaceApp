@@ -1,5 +1,6 @@
 import {
-    renderData
+    renderData,
+    renderDetail
 } from "./render.js";
 
 const body = document.querySelector("body")
@@ -15,7 +16,17 @@ function checkAge(value, genreValue , section) {
         body.classList.remove("kind")
     }
 }
+function checkAgeDetails(value, id){
+    if (value <= 12 ) {
+        renderDetail(JSON.parse(localStorage.getItem(`data${id}`)))
+        body.classList.add("kind")
 
+    } else {
+        renderDetail(JSON.parse(localStorage.getItem(`data${id}`)))
+        body.classList.remove("kind")
+    }
+}
 export {
-    checkAge
+    checkAge,
+    checkAgeDetails
 }

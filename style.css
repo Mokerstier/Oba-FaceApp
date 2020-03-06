@@ -130,7 +130,9 @@ form p {
     display: block;
   }
 }
-
+.detail-block{
+  max-width: 30em;
+}
 .oba img {
   width: 150px;
 }
