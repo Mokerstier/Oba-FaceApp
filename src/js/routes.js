@@ -2,10 +2,10 @@ import {
   updateUI
 } from "./userInterface.js";
 import {
-  runApi
+  runApi, getBookByid
 } from "./runApi.js";
 import {
-  checkAge
+  checkAge, checkAgeDetails
 } from "./check.js";
 import { renderOptions } from "./render.js";
 
@@ -44,8 +44,16 @@ const routes = {
 
       checkAge(value, genreValue, emotionSection)
     })
-
   },
+  "details/:id": function(id){
+    getBookByid(id)
+    const personAge = document.getElementById('personAge');
+    personAge.addEventListener("click", () => {
+      let value = personAge.value;
+      checkAgeDetails(value, id)
+    })
+    updateUI('details')
+  }
 };
 
 export {

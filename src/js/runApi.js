@@ -1,6 +1,7 @@
 import {
-    checkAge 
+    checkAge,
 } from './check.js'
+import { renderDetail } from './render.js';
 
 function getDatafromCategorie(subject, section) {
     const cors = 'https://cors-anywhere.herokuapp.com/';
@@ -306,8 +307,36 @@ function runApi() {
         });
     }
 }
+function getBookByid(id){
+    const cors = 'https://cors-anywhere.herokuapp.com/';
+    const endpoint = 'https://zoeken.oba.nl/api/v1/details/?';
+    
+    const key = '1e19898c87464e239192c8bfe422f280';
+    const secret = '4289fec4e962a33118340c888699438d';
+    const detail = 'Default';
 
+    const config = {
+        Authorization: `Bearer ${secret}`
+    };
+    const url = `${cors}${endpoint}id=${id}&authorization=${key}&output=json`
+    
+    if(!localStorage.getItem(`data${id}`)){
+        fetch(url, config)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                localStorage.setItem(`data${id}`, JSON.stringify(data.record))
+                
+                
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        }
+}
 export {
     runApi,
-    getDatafromCategorie
+    getDatafromCategorie,
+    getBookByid
 }
