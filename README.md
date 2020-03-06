@@ -4,7 +4,7 @@
 
 
 ### Concept
-Ons concept maakt gebruik van de face api recpgnation door je emoties en leeftijd, je krijgt speciefike resultaten die bij je emotie passen. Het gaat ook niet alleen om de boeken resultaten maar ook de huisstijl van de web-site wordt aangepast op basis van je leeftijd.Bovendien kun je ook zelf het onderwerp kiezen door te glimlachen. 
+Ons concept maakt gebruik van de face api recognition door je emoties en leeftijd, je krijgt speciefike resultaten die bij je emotie passen. Het gaat ook niet alleen om de boeken resultaten maar ook de huisstijl van de web-site wordt aangepast op basis van je leeftijd. Bovendien kun je ook zelf het onderwerp kiezen door te glimlachen. 
 
 ### Installation 
 je kan deze website downloaden op github. Deze project maakt geen gebruik van node.js dus dan hoef je niks te doen behalve de repository te clonen en met je favorite code editor te opnnen.
