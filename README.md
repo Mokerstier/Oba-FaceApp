@@ -1,6 +1,7 @@
 # Project 1 @cmda-minor-web · 2019-2020
 ## oba-face
-screenshot
+<img width="1278" alt="Screenshot 2020-03-06 at 10 16 57" src="https://user-images.githubusercontent.com/45425087/76069772-aae22500-5f93-11ea-825d-fddb2e1504a5.png">
+
 
 ### Concept
 Ons concept maakt gebruik van de face api recpgnation door je emoties en leeftijd, je krijgt speciefike resultaten die bij je emotie passen. Het gaat ook niet alleen om de boeken resultaten maar ook de huisstijl van de web-site wordt aangepast op basis van je leeftijd.Bovendien kun je ook zelf het onderwerp kiezen door te glimlachen. 
@@ -10,6 +11,9 @@ je kan deze website downloaden op github. Deze project maakt geen gebruik van no
 
 ### face-api
 we maken gebruik van de [face-api](https://github.com/justadudewhohacks/face-api.js/) als je nog meer informatie wilt kijk dan op de repository van de api.
+
+## Accessibility 
+Onze web-site kan gebruikt worden door iedereen die kan emoties tonen. dus als gehandicapt kan je makkelijk navigeren door de web-sit.
 
 ### privacy
 ons web-stie maakt gebruik van de gebruiker camera. er wordt niks opgeslagen of gestuurd naar een database of een server alles draait lokaal.
@@ -24,8 +28,8 @@ ons web-stie maakt gebruik van de gebruiker camera. er wordt niks opgeslagen of 
 * Mohamad Al Ghorani 
 * Wouter van der Heijde
 
-### Licence
-[MIT](https://github.com/MohamadAlGhorani/project-1-1920/blob/master/LICENSE) Licence 
+### License
+[MIT](https://github.com/MohamadAlGhorani/project-1-1920/blob/master/LICENSE) License 
 
 ### Instructie voor het gebruiken van de API
 
