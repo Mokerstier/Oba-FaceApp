@@ -25,7 +25,7 @@ ons web-stie maakt gebruik van de gebruiker camera. er wordt niks opgeslagen of 
 * Wouter van der Heijde
 
 ### Licence
-[MIT]() Licence 
+[MIT](https://github.com/MohamadAlGhorani/project-1-1920/blob/master/LICENSE) Licence 
 
 ### Instructie voor het gebruiken van de API
 
