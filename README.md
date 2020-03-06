@@ -9,13 +9,13 @@ Ons concept maakt gebruik van de face api recpgnation door je emoties en leeftij
 ### Installation 
 je kan deze website downloaden op github. Deze project maakt geen gebruik van node.js dus dan hoef je niks te doen behalve de repository te clonen en met je favorite code editor te opnnen.
 
-### face-api
+### Face-api
 we maken gebruik van de [face-api](https://github.com/justadudewhohacks/face-api.js/) als je nog meer informatie wilt kijk dan op de repository van de api.
 
 ## Accessibility 
 Onze web-site kan gebruikt worden door iedereen die kan emoties tonen. dus als gehandicapt kan je makkelijk navigeren door de web-sit.
 
-### privacy
+### Privacy
 ons web-stie maakt gebruik van de gebruiker camera. er wordt niks opgeslagen of gestuurd naar een database of een server alles draait lokaal.
 
 ### Features
