@@ -43,7 +43,6 @@ ons web-stie maakt gebruik van de gebruiker camera. er wordt niks opgeslagen of 
     
     - De app maakt gebruik van de webcam als deze niet werkt of niet beschikbaar is, is de app bijna onburikbaar 
     (als je tab gebruikt kun je stiekem toch bij het input field komen en typen)
-        - Oplossing er zijn al 2 input fields op de pagina die zouden ingeschakeld kunnen worden waardoor de website meteen al bruikbaar is zonder camera.
         To do's :
         - Mouse input mogelijk maken op het input field (css)
         - het input field legen nadat een keuze is gemaakt (enhance by js)
