@@ -38,7 +38,9 @@ ons web-stie maakt gebruik van de gebruiker camera. er wordt niks opgeslagen of 
  Zie voorbeeld code in deze repository voor het aanspreken van de API.
 
  ## Browser Technologies
-Problemen:
+
+ ### Problemen:
+    
     - De app maakt gebruik van de webcam als deze niet werkt of niet beschikbaar is, is de app bijna onburikbaar (als je tab gebruikt kun je stiekem toch bij het input field komen en typen)
         - Oplossing er zijn al 2 input fields op de pagina die zouden ingeschakeld kunnen worden waardoor de website meteen al bruikbaar is zonder camera.
         To do's :
@@ -53,19 +55,25 @@ Problemen:
         - Meer :focus states gebruiken
         - Een lijst met categorieën laten zien die omlijnd worden wanneer ze gefocust zijn zodat ze makkelijk gezien kunnen worden en toegankelijker zijn voor screenreaders.
         - Of geluid afspelen waarin de huidige categorie wordt voorgelezen/ passend geluid die past bij het onderwerp.
+    
     - Dynamische javascript inladen werkt niet bij IE
         To do's: 
         - Een parser gebruiken die van alle JS file's 1 bestand maakt
+    
     - IE ondersteunt geen ES 6
         To do's:
         - Alle js omschrijven naar ES 5?
+    
     - Localstorage wordt gebruikt om states bij te houden (keuze's en loopen door categorieën)
         To do's
         - op een andere manier de states bijhouden bijv met variabelen
+    
     - Javascript uit hele app doet niks
         To do's
         - Alle javascript serverside regelen
+    
     - Fonts geen probleem
+    
     - Kleur geen probleem (contrasten etc.)
 
 
