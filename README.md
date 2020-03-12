@@ -37,3 +37,8 @@ ons web-stie maakt gebruik van de gebruiker camera. er wordt niks opgeslagen of 
  
  Zie voorbeeld code in deze repository voor het aanspreken van de API.
 
+ ## Browser Technologies
+Problemen:
+    - De app maakt gebruik van de webcam als deze niet werkt of niet beschikbaar is, is de app onbruikbaar;
+        - Oplossing er zijn al 2 input fields op de pagina die zouden ingeschakeld kunnen worden waardoor de website meteen al bruikbaar is
+
