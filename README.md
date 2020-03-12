@@ -41,19 +41,22 @@ ons web-stie maakt gebruik van de gebruiker camera. er wordt niks opgeslagen of 
 
  ### Problemen:
     
-    - De app maakt gebruik van de webcam als deze niet werkt of niet beschikbaar is, is de app bijna onburikbaar (als je tab gebruikt kun je stiekem toch bij het input field komen en typen)
+    - De app maakt gebruik van de webcam als deze niet werkt of niet beschikbaar is, is de app bijna onburikbaar 
+    (als je tab gebruikt kun je stiekem toch bij het input field komen en typen)
         - Oplossing er zijn al 2 input fields op de pagina die zouden ingeschakeld kunnen worden waardoor de website meteen al bruikbaar is zonder camera.
         To do's :
         - Mouse input mogelijk maken op het input field (css)
         - het input field legen nadat een keuze is gemaakt (enhance by js)
         - feedback geven nadat een keuze is gemaakt (enhance by js)
 
-    - Gebruik van afbeeldingen (dit probleem is stiekem al opgelost, er wordt namelijk ook al text van (in dit geval) de categorie getoont).
+    - Gebruik van afbeeldingen 
+    (dit probleem is stiekem al opgelost, er wordt namelijk ook al text van (in dit geval) de categorie getoont).
     - Screenreader leest de tekst al goed voor.
     - Zonder muis is het moeilijk om de headers die gebruikt worden voor de categorieën te selecteren
         To do's:
         - Meer :focus states gebruiken
-        - Een lijst met categorieën laten zien die omlijnd worden wanneer ze gefocust zijn zodat ze makkelijk gezien kunnen worden en toegankelijker zijn voor screenreaders.
+        - Een lijst met categorieën laten zien die omlijnd worden wanneer ze gefocust zijn, 
+        zodat ze makkelijk gezien kunnen worden en toegankelijker zijn voor screenreaders.
         - Of geluid afspelen waarin de huidige categorie wordt voorgelezen/ passend geluid die past bij het onderwerp.
     
     - Dynamische javascript inladen werkt niet bij IE
